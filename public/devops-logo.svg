@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 64">
+  <defs>
+    <marker id="arr-y" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+      <path d="M0,0 L5,2.5 L0,5 Z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arr-b" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+      <path d="M0,0 L5,2.5 L0,5 Z" fill="#1e40af"/>
+    </marker>
+  </defs>
+
+  <!-- Left lobe (DEV) - amber -->
+  <circle cx="52" cy="32" r="28" fill="#f59e0b"/>
+  <!-- Right lobe (OPS) - dark blue -->
+  <circle cx="108" cy="32" r="28" fill="#1e40af"/>
+
+  <!-- Circular arrow hint left (CCW) -->
+  <path d="M52,7 A25,25 0 1,0 29,42" fill="none" stroke="#e8820a" stroke-width="2.5" marker-end="url(#arr-y)"/>
+  <!-- Circular arrow hint right (CW) -->
+  <path d="M108,57 A25,25 0 1,0 131,22" fill="none" stroke="#1530a0" stroke-width="2.5" marker-end="url(#arr-b)"/>
+
+  <!-- DEV text -->
+  <text x="48" y="37" font-size="15" font-family="Arial,sans-serif" font-weight="bold" fill="white" text-anchor="middle">DEV</text>
+  <!-- OPS text -->
+  <text x="112" y="37" font-size="15" font-family="Arial,sans-serif" font-weight="bold" fill="white" text-anchor="middle">OPS</text>
+
+  <!-- Center labels -->
+  <text x="80" y="18" font-size="6.5" font-family="Arial,sans-serif" fill="#e2e8f0" text-anchor="middle" font-weight="600">Plan</text>
+  <text x="80" y="50" font-size="6.5" font-family="Arial,sans-serif" fill="#e2e8f0" text-anchor="middle" font-weight="600">Release</text>
+
+  <!-- Outer labels -->
+  <text x="52" y="9" font-size="6" font-family="Arial,sans-serif" fill="white" text-anchor="middle">Code</text>
+  <text x="26" y="34" font-size="6" font-family="Arial,sans-serif" fill="white" text-anchor="end">Build</text>
+  <text x="52" y="57" font-size="6" font-family="Arial,sans-serif" fill="white" text-anchor="middle">Test</text>
+
+  <text x="108" y="9" font-size="6" font-family="Arial,sans-serif" fill="white" text-anchor="middle">Deploy</text>
+  <text x="138" y="34" font-size="6" font-family="Arial,sans-serif" fill="white" text-anchor="start">Operate</text>
+  <text x="108" y="57" font-size="6" font-family="Arial,sans-serif" fill="white" text-anchor="middle">Monitor</text>
+</svg>

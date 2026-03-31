@@ -1,65 +1,127 @@
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="relative bg-[#0f172a] text-white overflow-x-hidden">
+
+      {/* BACKGROUND GLOW EFFECTS */}
+      <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-600/20 blur-3xl rounded-full"></div>
+      <div className="absolute top-40 right-0 w-96 h-96 bg-purple-600/20 blur-3xl rounded-full"></div>
+
+      {/* HERO SECTION */}
+      <section className="min-h-screen flex flex-col md:flex-row items-center justify-between px-4 md:px-20 pt-16 md:pt-24 gap-12">
+
+        {/* LEFT CONTENT */}
+        <div className="md:w-1/2 space-y-6 text-center md:text-left">
+
+          <motion.h1
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Hi, I&apos;m{" "}
+            <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              Athreya
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="text-gray-400 text-base md:text-lg leading-8"
           >
-            Documentation
-          </a>
+            DevOps Engineer focused on AWS, Infrastructure as Code, and
+            production-grade CI/CD automation. I build scalable, secure,
+            and failure-aware cloud systems.
+          </motion.p>
+
+          {/* CTA Buttons — flex-wrap fixes overflow on small screens */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="flex flex-wrap justify-center md:justify-start gap-4"
+          >
+            <Link
+              href="/projects"
+              className="px-6 py-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition shadow-lg text-sm font-medium"
+            >
+              View Projects
+            </Link>
+
+            <Link
+              href="/contact"
+              className="px-6 py-3 border border-gray-600 rounded-lg hover:border-blue-500 transition text-sm font-medium"
+            >
+              Contact Me
+            </Link>
+          </motion.div>
+
         </div>
-      </main>
-    </div>
+
+        {/* RIGHT SIDE VISUAL */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          className="md:w-1/2 flex justify-center"
+        >
+          <div className="w-56 h-56 md:w-64 md:h-64 rounded-3xl bg-gradient-to-br from-blue-600 to-purple-600 blur-2xl opacity-30 absolute"></div>
+
+          <div className="relative w-56 h-56 md:w-64 md:h-64 bg-[#020617] rounded-2xl border border-gray-800 shadow-2xl flex items-center justify-center">
+            <p className="text-gray-400 text-center px-6 text-sm md:text-base">
+              Designing automated infrastructure that scales reliably
+              under real-world production workloads.
+            </p>
+          </div>
+        </motion.div>
+
+      </section>
+
+      {/* PROFESSIONAL HIGHLIGHTS */}
+      <section className="py-16 md:py-20 px-4 md:px-20 bg-[#020617]">
+
+        <motion.h2
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-2xl md:text-3xl font-semibold text-center mb-12"
+        >
+          Professional Highlights
+        </motion.h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+
+          {[
+            { number: "1.6+", label: "Years of Production Experience" },
+            { number: "10+", label: "Infrastructure & Automation Projects" },
+            { number: "100%", label: "Automation-Driven Deployments" },
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="bg-[#0f172a] p-8 md:p-10 rounded-2xl border border-gray-800 hover:border-blue-500 transition"
+            >
+              <h3 className="text-3xl md:text-4xl font-bold text-blue-400">
+                {item.number}
+              </h3>
+              <p className="mt-4 text-gray-400 text-sm md:text-base">{item.label}</p>
+            </motion.div>
+          ))}
+
+        </div>
+
+      </section>
+
+    </main>
   );
 }
